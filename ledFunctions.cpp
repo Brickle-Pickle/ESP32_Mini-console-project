@@ -1,5 +1,4 @@
 #include "ledFunctions.h"
-#include <Arduino.h>
 
 // Internal Variable
 TaskHandle_t blinkLedTaskHandle = NULL;
@@ -7,13 +6,13 @@ TaskHandle_t blinkLedTaskHandle = NULL;
 // Task Declaration
 void TaskBlinkLed(void *pvParameters);
 
-void ledMenu(int &ledState, int ledPin) {
+void ledMenu(bool &ledState, int ledPin, MenuOption ledMenuOptions[]) {
     bool exit = false;
     int ledSelectedOption = 0;
 
     while (!exit) {
         clearScreen();
-        printMenu(ledMenuOptions, sizeof(ledMenuOptions)/sizeof(ledMenuOptions[0]), "LED MENU:");
+        printMenu(ledMenuOptions, ledMenuOptionsSize, "LED MENU:", ledSelectedOption);
 
         if (digitalRead(UP) == LOW) {
             ledSelectedOption--;
@@ -21,8 +20,8 @@ void ledMenu(int &ledState, int ledPin) {
             delay(200);
         } else if (digitalRead(DOWN) == LOW) {
             ledSelectedOption++;
-            if (ledSelectedOption >= sizeof(ledMenuOptions)/sizeof(ledMenuOptions[0])) {
-                ledSelectedOption = sizeof(ledMenuOptions)/sizeof(ledMenuOptions[0]) - 1;
+            if (ledSelectedOption >= ledMenuOptionsSize) {
+                ledSelectedOption = ledMenuOptionsSize - 1;
             }
             delay(200);
         } else if (digitalRead(LEFT) == LOW) {
