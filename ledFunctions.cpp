@@ -47,7 +47,7 @@ void turnLedOn(bool &ledState, int ledPin) {
         vTaskDelete(blinkLedTaskHandle);
         blinkLedTaskHandle = NULL;
     }
-    if (!ledState) digitalWrite(ledPin, HIGH);
+    digitalWrite(ledPin, HIGH);
     ledState = true;
 }
 
@@ -56,7 +56,7 @@ void turnLedOff(bool &ledState, int ledPin) {
         vTaskDelete(blinkLedTaskHandle);
         blinkLedTaskHandle = NULL;
     }
-    if (ledState) digitalWrite(ledPin, LOW);
+    digitalWrite(ledPin, LOW);
     ledState = false;
 }
 

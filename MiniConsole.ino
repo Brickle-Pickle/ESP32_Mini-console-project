@@ -2,6 +2,7 @@
 #include "config.h"
 #include "utils.h"
 #include "ledFunctions.h"
+#include "esp_sleep.h"
 
 // Setup
 void setup() {
@@ -50,9 +51,9 @@ void loop() {
         delay(200);
         switch (selectedOption) {
             case 0: ledMenu(ledState, LED, ledMenuOptions); break;
-            /* case 1: lightMenu(); break;
-            case 2: gameMenu(); break;
-            case 3: exitProgram(); break; */
+            // case 1: lightMenu(); break;
+            // case 2: gameMenu(); break;
+            case 3: exitProgram(); break;
         }
     }
 }
@@ -62,4 +63,13 @@ void initDisplay() {
     display.setTextSize(1);
     display.setTextColor(SSD1306_WHITE);
     loadScene("Starting mini console");
+}
+
+void exitProgram() {
+    clearScreen();
+    loadScene("Exiting mini console");
+    delay(2000);
+    turnLedOff(ledState, LED);
+    esp_sleep_enable_timer_wakeup(0);
+    esp_deep_sleep_start();
 }
