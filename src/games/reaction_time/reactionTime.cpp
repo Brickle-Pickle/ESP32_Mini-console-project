@@ -27,7 +27,7 @@ void playReaction() {
     for (int round = 0; round < 5; round++) {
         clearScreen();
         display.println("Round " + String(round + 1));
-        display.println("Wait for it...");
+        display.println("\nWait for it...");
         
         // Start early press detection task
         xTaskCreate(
@@ -71,7 +71,7 @@ void playReaction() {
 
         // Display round results
         clearScreen();
-        winner == 0 ? display.println("Left Player wins this round!") : display.println("Right Player wins this round!");
+        winner == 0 ? display.println("Left Player wins!") : display.println("Right Player wins!");
         winner == 0 ? display.println("Left player score: " + String(scores[0])) : display.println("Right player score: " + String(scores[1]));
         winner = -1;
         display.display();

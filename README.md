@@ -39,14 +39,15 @@ A DIY Arduino-based mini game console that includes simple games, a trivia mode,
 ---
 
 ## Project Structure
-| File/Folder              | Description                                                                 |
-|--------------------------|-----------------------------------------------------------------------------|
-| `MiniConsole.ino`        | Arduino firmware entry point                                               |
-| `config.cpp`, `config.h` | System configuration and parameters                                        |
+| File/Folder              | Description                                                               |
+|--------------------------|---------------------------------------------------------------------------|
+| `MiniConsole.ino`        | Arduino firmware entry point                                              |
+| `config.cpp`, `config.h` | System configuration and parameters                                       |
 | `ledFunctions.*`         | LED control and effects                                                   |
 | `gamesFunctions.*`       | Game orchestration and shared logic                                       |
 | `trivial.*`              | Trivia game logic                                                         |
-| `snake.*`                | Snake game logic and leaderboard handling                                  |
+| `snake.*`                | Snake game logic and leaderboard handling                                 |
+| `reactionTime.*`         | Reaction time game logic and leaderboard handling                         |
 | `utils.*`                | Shared utility functions                                                  |
 | `data/`                  | Contains trivia questions and score files                                 |
 | `models/`                | 3D printable models for the MiniConsole enclosure                         |
@@ -123,7 +124,16 @@ A DIY Arduino-based mini game console that includes simple games, a trivia mode,
 > Code is available under the MiniConsole Non-Commercial License v1.0. See `LICENSE.md` for the full license text.
 
 ## Snake Game
-- Source: `c:\Users\Antonio\Documents\Arduino\projects\MiniConsole\snake.cpp`, `c:\Users\Antonio\Documents\Arduino\projects\MiniConsole\snake.h`.
+- Source: `MiniConsole\src\games\snake\snake.cpp`, `MiniConsole\src\games\snake\snake.h`.
 - Controls: UP, DOWN, LEFT, RIGHT move the snake; movement cannot reverse into itself directly.
 - Gameplay: Eat apples to increase score and length; screen edges wrap; collision with the body ends the game.
 - Leaderboard: After game over, scores update `data/leaderboard.sn` and display top entries.
+
+## Reaction Time Game
+- Source: `MiniConsole\src\games\reaction_Time\reactionTime.cpp`, `MiniConsole\src\games\reaction_Time\reactionTime.h`.
+- Controls: Any button to start the game; press the button as quickly as possible.
+- Gameplay: The game displays a random sequence of LEDs; the player must press the button as soon as the last LED lights up.
+- PvP: Two players may play against each other; the first to press the button wins.
+
+## How to upload a game
+- See at `GAMES_UPLOAD.md`.
