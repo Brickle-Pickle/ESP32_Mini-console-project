@@ -142,4 +142,4 @@ A DIY Arduino-based mini game console that includes simple games, a trivia mode,
 - Leaderboard: After game over, scores update `data/leaderboard.tr` and display top entries.
 
 ## Aditional Documentation
-- [How to upload a game](GAMES_UPLOAD.md)
+- [How to upload a game](CONTRIBUTING.md)
