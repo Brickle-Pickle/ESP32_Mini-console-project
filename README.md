@@ -20,7 +20,7 @@
     <br>
 </div>
 
-# MiniConsole
+# MiniConsole (v1.3.4)
 A DIY Arduino-based mini game console that includes simple games, a trivia mode, LED feedback, and lightweight score tracking. The project is modular to make it easy to add new games, LED effects, and hardware tweaks. Models are provided to 3D print the enclosure.
 
 > **TIP:** Use this repository to learn Arduino, extend with your own games, and tweak LED effects.
